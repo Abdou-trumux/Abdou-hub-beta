@@ -5,13 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>بوابة العلامات التجارية الكبرى - Brand Hub</title>
     <style>
-        /* CSS الأنماط لجعل التصميم جذابًا */
+        /* [كود CSS كما كان سابقاً] */
         :root {
-            /* تعريف الألوان الأساسية */
-            --primary-color: #3f51b5; /* أزرق بنفسجي جذاب */
-            --secondary-color: #ff4081; /* وردي مميز */
-            --background-color: #f4f7f6; /* خلفية فاتحة ونظيفة */
-            --card-background: #ffffff; /* لون البطاقة أبيض */
+            --primary-color: #3f51b5; 
+            --secondary-color: #ff4081; 
+            --background-color: #f4f7f6; 
+            --card-background: #ffffff; 
             --text-color: #333333;
         }
 
@@ -63,7 +62,7 @@
             border-radius: 12px;
             overflow: hidden;
             box-shadow: 0 6px 15px rgba(0, 0, 0, 0.08);
-            transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.5s ease; /* إضافة transition للخلفية */
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
             text-align: center;
         }
 
@@ -88,6 +87,16 @@
             margin-bottom: 10px;
             color: var(--primary-color);
             font-size: 1.5em;
+            /* إضافة إطار أصفر خفيف لتمييز النص القابل للتعديل */
+            border: 1px solid transparent; 
+            transition: border-color 0.2s;
+        }
+        
+        /* تأثير عند تمرير الماوس على النص القابل للتعديل */
+        .brand-info h3[contenteditable="true"]:hover,
+        .brand-info p[contenteditable="true"]:hover {
+            border-color: #ffc107; 
+            cursor: text;
         }
 
         .brand-info p {
@@ -98,18 +107,16 @@
             overflow: hidden;
         }
 
-        /* تنسيق زر الدخول/التعديل */
-        /* تغيير شكل الزر ليكون واضحًا أنه لتشغيل وظيفة (Function) وليس مجرد رابط (Link) */
         .brand-button { 
             display: inline-block;
             background-color: var(--secondary-color);
             color: white;
             padding: 10px 20px;
-            border: none; /* جعله زرًا حقيقيًا */
+            border: none; 
             border-radius: 6px;
             text-decoration: none;
             font-weight: bold;
-            cursor: pointer; /* لإظهار أنه قابل للضغط */
+            cursor: pointer; 
             transition: background-color 0.3s ease;
         }
 
@@ -131,75 +138,41 @@
             <div class="brand-card" id="brand-lacoste">
                 <img src="1000012368.png" alt="شعار لاكوست">
                 <div class="brand-info">
-                    <h3 id="name-lacoste">لاكوست (Lacoste)</h3>
-                    <p id="desc-lacoste">علامة تجارية فرنسية شهيرة للأزياء والملابس الرياضية تأسست عام 1933.</p>
-                    <button class="brand-button" onclick="editBrand('lacoste')">تعديل/عرض المزيد</button>
+                    <h3 contenteditable="true">لاكوست (Lacoste)</h3> 
+                    <p contenteditable="true">علامة تجارية فرنسية شهيرة للأزياء والملابس الرياضية تأسست عام 1933.</p>
+                    <button class="brand-button" onclick="alert('خاصية التعديل المباشر مفعلة! انقر على العنوان أو الوصف لتعديلهما.');">انقر للتعديل المباشر</button>
                 </div>
             </div>
 
             <div class="brand-card" id="brand-apple">
                 <img src="1000012369.png" alt="شعار أبل">
                 <div class="brand-info">
-                    <h3 id="name-apple">أبل (Apple)</h3>
-                    <p id="desc-apple">عملاق التكنولوجيا الأمريكي، متخصص في الهواتف الذكية وأجهزة الحاسوب والبرمجيات.</p>
-                    <button class="brand-button" onclick="editBrand('apple')">تعديل/عرض المزيد</button>
+                    <h3 contenteditable="true">أبل (Apple)</h3>
+                    <p contenteditable="true">عملاق التكنولوجيا الأمريكي، متخصص في الهواتف الذكية وأجهزة الحاسوب والبرمجيات.</p>
+                    <button class="brand-button" onclick="alert('خاصية التعديل المباشر مفعلة! انقر على العنوان أو الوصف لتعديلهما.');">انقر للتعديل المباشر</button>
                 </div>
             </div>
 
             <div class="brand-card" id="brand-nike">
                 <img src="1000012370.png" alt="شعار نايكي">
                 <div class="brand-info">
-                    <h3 id="name-nike">نايكي (Nike)</h3>
-                    <p id="desc-nike">الشركة العالمية الرائدة في تصميم وتصنيع الأحذية والملابس والمعدات الرياضية.</p>
-                    <button class="brand-button" onclick="editBrand('nike')">تعديل/عرض المزيد</button>
+                    <h3 contenteditable="true">نايكي (Nike)</h3>
+                    <p contenteditable="true">الشركة العالمية الرائدة في تصميم وتصنيع الأحذية والملابس والمعدات الرياضية.</p>
+                    <button class="brand-button" onclick="alert('خاصية التعديل المباشر مفعلة! انقر على العنوان أو الوصف لتعديلهما.');">انقر للتعديل المباشر</button>
                 </div>
             </div>
 
             <div class="brand-card" id="brand-bmw">
                 <img src="1000012371.jpg" alt="شعار بي إم دبليو">
                 <div class="brand-info">
-                    <h3 id="name-bmw">بي إم دبليو (BMW)</h3>
-                    <p id="desc-bmw">الشركة الألمانية المصنعة للسيارات الفاخرة والمحركات والدراجات النارية.</p>
-                    <button class="brand-button" onclick="editBrand('bmw')">تعديل/عرض المزيد</button>
+                    <h3 contenteditable="true">بي إم دبليو (BMW)</h3>
+                    <p contenteditable="true">الشركة الألمانية المصنعة للسيارات الفاخرة والمحركات والدراجات النارية.</p>
+                    <button class="brand-button" onclick="alert('خاصية التعديل المباشر مفعلة! انقر على العنوان أو الوصف لتعديلهما.');">انقر للتعديل المباشر</button>
                 </div>
             </div>
             
         </div>
     </div>
-
-    <script>
-        // قائمة بالألوان التي يمكن التبديل بينها
-        const colors = ['#ffffff', '#fffbe0', '#e0fff3', '#ffe0f7']; 
-        let colorIndex = 0;
-
-        // الدالة التي يتم استدعاؤها عند الضغط على زر التعديل
-        function editBrand(brandId) {
-            // 1. العثور على بطاقة العلامة التجارية
-            const card = document.getElementById('brand-' + brandId);
-            
-            // 2. تغيير لون خلفية البطاقة (ميزة تعديل الألوان)
-            colorIndex = (colorIndex + 1) % colors.length; // الانتقال إلى اللون التالي
-            card.style.backgroundColor = colors[colorIndex];
-            
-            // 3. تعديل النص (ميزة تعديل المحتوى)
-            const descriptionElement = document.getElementById('desc-' + brandId);
-            const nameElement = document.getElementById('name-' + brandId);
-            
-            // مثال لتبديل النص بين وضعين
-            if (descriptionElement.innerHTML.includes('مُعدّل')) {
-                // العودة إلى النص الأصلي (يجب أن تستبدله ببيانات مخزنة لاحقاً)
-                nameElement.innerHTML = nameElement.innerHTML.replace(' - مُعدَّل', '');
-                descriptionElement.innerHTML = 'تم استعادة الوصف الأصلي لهذه الماركة.';
-            } else {
-                // وضع نص التعديل الجديد
-                nameElement.innerHTML += ' - مُعدَّل';
-                descriptionElement.innerHTML = 'هذا الوصف **مُعدَّل** الآن! اضغط مرة أخرى لترى التغيير.';
-            }
-
-            // إظهار تنبيه بسيط للمستخدم
-            alert(`تم تعديل خصائص بطاقة ${nameElement.innerHTML}!`);
-        }
-    </script>
 
 </body>
 </html>
