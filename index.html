@@ -19,7 +19,6 @@
             box-sizing: border-box;
             margin: 0;
             padding: 0;
-            /* اختيار خط عربي حديث وجذاب */
             font-family: 'Arial', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
 
@@ -30,7 +29,6 @@
             text-align: right;
         }
 
-        /* تنسيق رأس الصفحة (Header) */
         .header {
             background-color: var(--primary-color);
             color: white;
@@ -48,28 +46,24 @@
             opacity: 0.9;
         }
 
-        /* تنسيق الحاوية الرئيسية */
         .container {
             max-width: 1200px;
             margin: 40px auto;
             padding: 0 20px;
         }
 
-        /* شبكة عرض العلامات التجارية */
         .brands-grid {
             display: grid;
-            /* عرض 3 أعمدة على الشاشات الكبيرة */
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 30px;
         }
 
-        /* تنسيق بطاقة العلامة التجارية */
         .brand-card {
             background-color: var(--card-background);
             border-radius: 12px;
             overflow: hidden;
             box-shadow: 0 6px 15px rgba(0, 0, 0, 0.08);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.5s ease; /* إضافة transition للخلفية */
             text-align: center;
         }
 
@@ -81,10 +75,9 @@
         .brand-card img {
             width: 100%;
             height: 150px;
-            /* تستخدم object-fit: contain لتصغير الشعار ليناسب المساحة دون قص، مع الحفاظ على الأبعاد */
             object-fit: contain; 
             background-color: #eceff1; 
-            padding: 20px; /* لإضافة مساحة حول الشعار */
+            padding: 20px; 
         }
 
         .brand-info {
@@ -106,18 +99,21 @@
         }
 
         /* تنسيق زر الدخول/التعديل */
-        .brand-link {
+        /* تغيير شكل الزر ليكون واضحًا أنه لتشغيل وظيفة (Function) وليس مجرد رابط (Link) */
+        .brand-button { 
             display: inline-block;
             background-color: var(--secondary-color);
             color: white;
             padding: 10px 20px;
+            border: none; /* جعله زرًا حقيقيًا */
             border-radius: 6px;
             text-decoration: none;
             font-weight: bold;
+            cursor: pointer; /* لإظهار أنه قابل للضغط */
             transition: background-color 0.3s ease;
         }
 
-        .brand-link:hover {
+        .brand-button:hover {
             background-color: #e91e63; 
         }
     </style>
@@ -135,41 +131,75 @@
             <div class="brand-card" id="brand-lacoste">
                 <img src="1000012368.png" alt="شعار لاكوست">
                 <div class="brand-info">
-                    <h3>لاكوست (Lacoste)</h3>
-                    <p>علامة تجارية فرنسية شهيرة للأزياء والملابس الرياضية تأسست عام 1933.</p>
-                    <a href="edit-page-lacoste.html" class="brand-link">تعديل/عرض المزيد</a>
+                    <h3 id="name-lacoste">لاكوست (Lacoste)</h3>
+                    <p id="desc-lacoste">علامة تجارية فرنسية شهيرة للأزياء والملابس الرياضية تأسست عام 1933.</p>
+                    <button class="brand-button" onclick="editBrand('lacoste')">تعديل/عرض المزيد</button>
                 </div>
             </div>
 
             <div class="brand-card" id="brand-apple">
                 <img src="1000012369.png" alt="شعار أبل">
                 <div class="brand-info">
-                    <h3>أبل (Apple)</h3>
-                    <p>عملاق التكنولوجيا الأمريكي، متخصص في الهواتف الذكية وأجهزة الحاسوب والبرمجيات.</p>
-                    <a href="edit-page-apple.html" class="brand-link">تعديل/عرض المزيد</a>
+                    <h3 id="name-apple">أبل (Apple)</h3>
+                    <p id="desc-apple">عملاق التكنولوجيا الأمريكي، متخصص في الهواتف الذكية وأجهزة الحاسوب والبرمجيات.</p>
+                    <button class="brand-button" onclick="editBrand('apple')">تعديل/عرض المزيد</button>
                 </div>
             </div>
 
             <div class="brand-card" id="brand-nike">
                 <img src="1000012370.png" alt="شعار نايكي">
                 <div class="brand-info">
-                    <h3>نايكي (Nike)</h3>
-                    <p>الشركة العالمية الرائدة في تصميم وتصنيع الأحذية والملابس والمعدات الرياضية.</p>
-                    <a href="edit-page-nike.html" class="brand-link">تعديل/عرض المزيد</a>
+                    <h3 id="name-nike">نايكي (Nike)</h3>
+                    <p id="desc-nike">الشركة العالمية الرائدة في تصميم وتصنيع الأحذية والملابس والمعدات الرياضية.</p>
+                    <button class="brand-button" onclick="editBrand('nike')">تعديل/عرض المزيد</button>
                 </div>
             </div>
 
             <div class="brand-card" id="brand-bmw">
                 <img src="1000012371.jpg" alt="شعار بي إم دبليو">
                 <div class="brand-info">
-                    <h3>بي إم دبليو (BMW)</h3>
-                    <p>الشركة الألمانية المصنعة للسيارات الفاخرة والمحركات والدراجات النارية.</p>
-                    <a href="edit-page-bmw.html" class="brand-link">تعديل/عرض المزيد</a>
+                    <h3 id="name-bmw">بي إم دبليو (BMW)</h3>
+                    <p id="desc-bmw">الشركة الألمانية المصنعة للسيارات الفاخرة والمحركات والدراجات النارية.</p>
+                    <button class="brand-button" onclick="editBrand('bmw')">تعديل/عرض المزيد</button>
                 </div>
             </div>
             
-            </div>
+        </div>
     </div>
+
+    <script>
+        // قائمة بالألوان التي يمكن التبديل بينها
+        const colors = ['#ffffff', '#fffbe0', '#e0fff3', '#ffe0f7']; 
+        let colorIndex = 0;
+
+        // الدالة التي يتم استدعاؤها عند الضغط على زر التعديل
+        function editBrand(brandId) {
+            // 1. العثور على بطاقة العلامة التجارية
+            const card = document.getElementById('brand-' + brandId);
+            
+            // 2. تغيير لون خلفية البطاقة (ميزة تعديل الألوان)
+            colorIndex = (colorIndex + 1) % colors.length; // الانتقال إلى اللون التالي
+            card.style.backgroundColor = colors[colorIndex];
+            
+            // 3. تعديل النص (ميزة تعديل المحتوى)
+            const descriptionElement = document.getElementById('desc-' + brandId);
+            const nameElement = document.getElementById('name-' + brandId);
+            
+            // مثال لتبديل النص بين وضعين
+            if (descriptionElement.innerHTML.includes('مُعدّل')) {
+                // العودة إلى النص الأصلي (يجب أن تستبدله ببيانات مخزنة لاحقاً)
+                nameElement.innerHTML = nameElement.innerHTML.replace(' - مُعدَّل', '');
+                descriptionElement.innerHTML = 'تم استعادة الوصف الأصلي لهذه الماركة.';
+            } else {
+                // وضع نص التعديل الجديد
+                nameElement.innerHTML += ' - مُعدَّل';
+                descriptionElement.innerHTML = 'هذا الوصف **مُعدَّل** الآن! اضغط مرة أخرى لترى التغيير.';
+            }
+
+            // إظهار تنبيه بسيط للمستخدم
+            alert(`تم تعديل خصائص بطاقة ${nameElement.innerHTML}!`);
+        }
+    </script>
 
 </body>
 </html>
