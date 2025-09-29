@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>بوابة العلامات التجارية الكبرى - Brand Hub</title>
+    <title>بوابة العلامات التجارية الكبرى - Brand Hub - تحكم الألوان</title>
     <style>
-        /* [كود CSS كما كان سابقاً] */
+        /* CSS الأنماط الأساسية */
         :root {
             --primary-color: #3f51b5; 
             --secondary-color: #ff4081; 
@@ -36,15 +36,6 @@
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
         }
 
-        .header h1 {
-            margin-bottom: 5px;
-            font-size: 2.5em;
-        }
-
-        .header p {
-            opacity: 0.9;
-        }
-
         .container {
             max-width: 1200px;
             margin: 40px auto;
@@ -60,7 +51,6 @@
         .brand-card {
             background-color: var(--card-background);
             border-radius: 12px;
-            overflow: hidden;
             box-shadow: 0 6px 15px rgba(0, 0, 0, 0.08);
             transition: transform 0.3s ease, box-shadow 0.3s ease;
             text-align: center;
@@ -71,42 +61,25 @@
             box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
         }
 
-        .brand-card img {
+        /* تنسيق حاوية الشعار (SVG) */
+        .logo-container {
             width: 100%;
             height: 150px;
-            object-fit: contain; 
             background-color: #eceff1; 
-            padding: 20px; 
-        }
-
-        .brand-info {
             padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
         }
 
-        .brand-info h3 {
-            margin-bottom: 10px;
-            color: var(--primary-color);
-            font-size: 1.5em;
-            /* إضافة إطار أصفر خفيف لتمييز النص القابل للتعديل */
-            border: 1px solid transparent; 
-            transition: border-color 0.2s;
+        /* جعل SVG يأخذ المساحة المتاحة */
+        .logo-container svg {
+            max-width: 80%;
+            max-height: 100%;
+            transition: fill 0.5s ease, color 0.5s ease; /* لعمل انتقال سلس للألوان */
         }
         
-        /* تأثير عند تمرير الماوس على النص القابل للتعديل */
-        .brand-info h3[contenteditable="true"]:hover,
-        .brand-info p[contenteditable="true"]:hover {
-            border-color: #ffc107; 
-            cursor: text;
-        }
-
-        .brand-info p {
-            font-size: 0.9em;
-            color: #666;
-            margin-bottom: 15px;
-            height: 40px; 
-            overflow: hidden;
-        }
-
+        .brand-info { padding: 20px; }
         .brand-button { 
             display: inline-block;
             background-color: var(--secondary-color);
@@ -114,14 +87,8 @@
             padding: 10px 20px;
             border: none; 
             border-radius: 6px;
-            text-decoration: none;
-            font-weight: bold;
             cursor: pointer; 
             transition: background-color 0.3s ease;
-        }
-
-        .brand-button:hover {
-            background-color: #e91e63; 
         }
     </style>
 </head>
@@ -129,50 +96,78 @@
 
     <header class="header">
         <h1>بوابة العلامات التجارية الكبرى</h1>
-        <p>اكتشف، وتصفح، وقم بالتعديل على المعلومات التي تحتاجها.</p>
+        <p>التحكم الكامل بألوان الشعارات (SVG).</p>
     </header>
 
     <div class="container">
         <div class="brands-grid">
             
             <div class="brand-card" id="brand-lacoste">
-                <img src="1000012368.png" alt="شعار لاكوست">
+                <div class="logo-container">
+                    <svg id="svg-lacoste" viewBox="0 0 500 200" xmlns="http://www.w3.org/2000/svg">
+                        <rect x="50" y="50" width="100" height="100" fill="#008000" id="lacoste-color-part"/> 
+                        <text x="160" y="130" font-family="Arial" font-size="70" fill="#000000">LACOSTE</text>
+                    </svg>
+                </div>
                 <div class="brand-info">
-                    <h3 contenteditable="true">لاكوست (Lacoste)</h3> 
-                    <p contenteditable="true">علامة تجارية فرنسية شهيرة للأزياء والملابس الرياضية تأسست عام 1933.</p>
-                    <button class="brand-button" onclick="alert('خاصية التعديل المباشر مفعلة! انقر على العنوان أو الوصف لتعديلهما.');">انقر للتعديل المباشر</button>
+                    <h3>لاكوست (Lacoste)</h3>
+                    <p>المستطيل الأخضر يمثل التمساح، والآن يمكنك تغيير لونه.</p>
+                    <button class="brand-button" onclick="changeColor('lacoste', 'lacoste-color-part', ['#008000', '#0000FF', '#FFD700', '#FFFFFF'])">تعديل/تغيير الألوان</button>
                 </div>
             </div>
 
             <div class="brand-card" id="brand-apple">
-                <img src="1000012369.png" alt="شعار أبل">
+                <div class="logo-container">
+                    <svg id="svg-apple" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+                        <circle cx="100" cy="100" r="80" fill="#000000" id="apple-color-part"/> 
+                        <text x="70" y="105" font-family="Arial" font-size="40" fill="#FFFFFF">APPLE</text>
+                    </svg>
+                </div>
                 <div class="brand-info">
-                    <h3 contenteditable="true">أبل (Apple)</h3>
-                    <p contenteditable="true">عملاق التكنولوجيا الأمريكي، متخصص في الهواتف الذكية وأجهزة الحاسوب والبرمجيات.</p>
-                    <button class="brand-button" onclick="alert('خاصية التعديل المباشر مفعلة! انقر على العنوان أو الوصف لتعديلهما.');">انقر للتعديل المباشر</button>
+                    <h3>أبل (Apple)</h3>
+                    <p>الدائرة السوداء تمثل التفاحة. يمكنك تغيير لونها.</p>
+                    <button class="brand-button" onclick="changeColor('apple', 'apple-color-part', ['#000000', '#C0C0C0', '#FF0000', '#0000FF'])">تعديل/تغيير الألوان</button>
                 </div>
             </div>
 
-            <div class="brand-card" id="brand-nike">
-                <img src="1000012370.png" alt="شعار نايكي">
-                <div class="brand-info">
-                    <h3 contenteditable="true">نايكي (Nike)</h3>
-                    <p contenteditable="true">الشركة العالمية الرائدة في تصميم وتصنيع الأحذية والملابس والمعدات الرياضية.</p>
-                    <button class="brand-button" onclick="alert('خاصية التعديل المباشر مفعلة! انقر على العنوان أو الوصف لتعديلهما.');">انقر للتعديل المباشر</button>
-                </div>
+            <div class="brand-card">
+                <div class="logo-container"><p style="color:red; font-weight:bold;">المرجوا إرسال شعار نايكي بصيغة SVG لتمكين الميزة</p></div>
+                <div class="brand-info"><h3>نايكي (Nike)</h3><p>ميزة تغيير الألوان غير مدعومة حالياً لهذه الماركة.</p> <button class="brand-button" disabled>غير مدعوم</button></div>
             </div>
-
-            <div class="brand-card" id="brand-bmw">
-                <img src="1000012371.jpg" alt="شعار بي إم دبليو">
-                <div class="brand-info">
-                    <h3 contenteditable="true">بي إم دبليو (BMW)</h3>
-                    <p contenteditable="true">الشركة الألمانية المصنعة للسيارات الفاخرة والمحركات والدراجات النارية.</p>
-                    <button class="brand-button" onclick="alert('خاصية التعديل المباشر مفعلة! انقر على العنوان أو الوصف لتعديلهما.');">انقر للتعديل المباشر</button>
-                </div>
+            
+            <div class="brand-card">
+                <div class="logo-container"><p style="color:red; font-weight:bold;">المرجوا إرسال شعار BMW بصيغة SVG لتمكين الميزة</p></div>
+                <div class="brand-info"><h3>بي إم دبليو (BMW)</h3><p>ميزة تغيير الألوان غير مدعومة حالياً لهذه الماركة.</p> <button class="brand-button" disabled>غير مدعوم</button></div>
             </div>
             
         </div>
     </div>
+
+    <script>
+        // تخزين مؤشرات الألوان الحالية لكل جزء من الشعار
+        const colorIndexes = {
+            'lacoste': 0,
+            'apple': 0
+        };
+
+        // الدالة التي تغير الألوان في SVG
+        function changeColor(brandId, partId, colorList) {
+            // 1. تحديث المؤشر للانتقال إلى اللون التالي
+            let currentIndex = colorIndexes[brandId];
+            currentIndex = (currentIndex + 1) % colorList.length; // الانتقال إلى اللون التالي في القائمة
+            colorIndexes[brandId] = currentIndex;
+
+            // 2. الحصول على العنصر المراد تلوينه (جزء من SVG)
+            const partToColor = document.getElementById(partId);
+            
+            // 3. تطبيق اللون الجديد
+            if (partToColor) {
+                partToColor.setAttribute('fill', colorList[currentIndex]);
+            }
+            
+            alert(`تم تغيير لون ${brandId} إلى اللون: ${colorList[currentIndex]}`);
+        }
+    </script>
 
 </body>
 </html>
